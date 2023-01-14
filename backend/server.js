@@ -1,6 +1,6 @@
-const express = require("express");
-const detenv = require("dotenv");
-const products = require("./data/products");
+import express from "express";
+import detenv from "dotenv";
+import products from "./data/products.js";
 
 detenv.config();
 
@@ -23,5 +23,7 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(
 	PORT,
-	console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+	console.log(
+		`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+	)
 );

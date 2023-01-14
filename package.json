@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "MERN E-Commerce Web Application",
 	"main": "server.js",
+	"type": "module",
 	"author": "Yousuf Ejaz Ahmad",
 	"license": "MIT",
 	"scripts": {

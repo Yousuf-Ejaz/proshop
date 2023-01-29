@@ -52,7 +52,7 @@ const ProfileScreen = () => {
 	return (
 		<Row>
 			<Col md={3}>
-				<h2>User Profile</h2>
+				<h2 style={{ textTransform: "uppercase" }}>User Profile</h2>
 				{message && <Message variant="danger">{message}</Message>}
 				{error && <Message variant="danger">{error}</Message>}
 				{success && (
@@ -112,7 +112,7 @@ const ProfileScreen = () => {
 				</Form>
 			</Col>
 			<Col md={9}>
-				<h2>My Orders</h2>
+				<h2 style={{ textTransform: "uppercase" }}>My Orders</h2>
 			</Col>
 		</Row>
 	);

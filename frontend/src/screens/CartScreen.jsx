@@ -27,7 +27,7 @@ function CartScreen() {
 
 	console.log(cartItems);
 	const removeFromCartHandler = (id) => dispatch(removeFromCart(id));
-	const checkOutHandler = (id) => navigate("/login?redirect=shipping");
+	const checkOutHandler = (id) => navigate("/login?redirect=/shipping");
 
 	const productId = params.id;
 	const qty = queryParams.qty === undefined ? 0 : queryParams.qty;

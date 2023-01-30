@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { useNavigate } from "react-router-dom";
 import Message from "../components/Message";
 import { Link } from "react-router-dom";
+import { createOrder } from "../actions/orderActions";
 
 function PlaceOrderScreen() {
 	const cart = useSelector((state) => state.cart);
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const addDecimals = (num) => {
 		return (Math.round(num * 100) / 100).toFixed(2);
@@ -20,13 +23,33 @@ function PlaceOrderScreen() {
 	cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 100);
 	cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)));
 
-	cart.totalPrice =
+	const orderCreate = useSelector((state) => state.orderCreate);
+	const { order, success, error } = orderCreate;
+
+	useEffect(() => {
+		if (success) {
+			navigate(`/order/${order._id}`);
+		}
+	}, [navigate, success]);
+
+	cart.totalPrice = addDecimals(
 		Number(cart.itemsPrice) +
-		Number(cart.shippingPrice) +
-		Number(cart.taxPrice);
+			Number(cart.shippingPrice) +
+			Number(cart.taxPrice)
+	);
 
 	const placeOrderHandler = () => {
-		console.log("object");
+		dispatch(
+			createOrder({
+				orderItems: cart.cartItems,
+				shippingAddress: cart.shippingAddress,
+				paymentMethod: cart.paymentMethod,
+				itemsPrice: cart.itemsPrice,
+				shippingPrice: cart.shippingPrice,
+				taxPrice: cart.taxPrice,
+				totalPrice: cart.totalPrice,
+			})
+		);
 	};
 
 	return (
@@ -130,6 +153,11 @@ function PlaceOrderScreen() {
 									<Col>Total</Col>
 									<Col>₹ {cart.totalPrice}</Col>
 								</Row>
+							</ListGroup.Item>
+							<ListGroup.Item>
+								{error && (
+									<Message variant="danger">{error}</Message>
+								)}
 							</ListGroup.Item>
 							<ListGroup>
 								<Button

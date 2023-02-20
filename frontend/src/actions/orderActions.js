@@ -28,7 +28,11 @@ export const createOrder = (order) => async (dispatch, getState) => {
 			},
 		};
 
-		const { data } = await axios.post(`/api/orders`, order, config);
+		const { data } = await axios.post(
+			`https://proshop-7rto.onrender.com/api/orders`,
+			order,
+			config
+		);
 
 		dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
 	} catch (error) {
@@ -55,7 +59,10 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 			},
 		};
 
-		const { data } = await axios.get(`/api/orders/${id}`, config);
+		const { data } = await axios.get(
+			`https://proshop-7rto.onrender.com/api/orders/${id}`,
+			config
+		);
 
 		dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
@@ -85,7 +92,7 @@ export const payOrder =
 			};
 
 			const { data } = await axios.put(
-				`/api/orders/${orderId}/pay`,
+				`https://proshop-7rto.onrender.com/api/orders/${orderId}/pay`,
 				paymentResult,
 				config
 			);
@@ -114,7 +121,10 @@ export const listMyOrders = () => async (dispatch, getState) => {
 			},
 		};
 
-		const { data } = await axios.get(`/api/orders/myorders`, config);
+		const { data } = await axios.get(
+			`https://proshop-7rto.onrender.com/api/orders/myorders`,
+			config
+		);
 
 		dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data });
 	} catch (error) {

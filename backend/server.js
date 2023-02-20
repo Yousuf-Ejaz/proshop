@@ -19,10 +19,6 @@ app.use(express.json());
 
 const __dirname = path.resolve();
 
-app.get("/", (req, res) => {
-	res.send("API is running ...");
-});
-
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
@@ -33,6 +29,18 @@ app.get("/api/config/paypal", (req, res) =>
 );
 
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+	app.get("*", (req, res) =>
+		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+	);
+} else {
+	app.get("/", (req, res) => {
+		res.send("API is running....");
+	});
+}
 
 app.use(notFound);
 

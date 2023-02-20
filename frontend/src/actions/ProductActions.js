@@ -21,7 +21,9 @@ export const listProducts = () => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_LIST_REQUEST });
 
-		const { data } = await axios("/api/products");
+		const { data } = await axios(
+			"https://proshop-7rto.onrender.com/api/products"
+		);
 		dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({
@@ -37,7 +39,9 @@ export const listProductDetails = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-		const { data } = await axios(`/api/products/${id}`);
+		const { data } = await axios(
+			`https://proshop-7rto.onrender.com/api/products/${id}`
+		);
 		dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({
@@ -63,7 +67,10 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
 			},
 		};
 
-		await axios.delete(`/api/products/${id}`, config);
+		await axios.delete(
+			`https://proshop-7rto.onrender.com/api/products/${id}`,
+			config
+		);
 
 		dispatch({ type: PRODUCT_DELETE_SUCCESS });
 	} catch (error) {
@@ -90,7 +97,11 @@ export const createProduct = () => async (dispatch, getState) => {
 			},
 		};
 
-		const { data } = await axios.post(`/api/products`, {}, config);
+		const { data } = await axios.post(
+			`https://proshop-7rto.onrender.com/api/products`,
+			{},
+			config
+		);
 
 		dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data });
 	} catch (error) {
@@ -118,7 +129,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.put(
-			`/api/products/${product._id}`,
+			`https://proshop-7rto.onrender.com/api/products/${product._id}`,
 			product,
 			config
 		);

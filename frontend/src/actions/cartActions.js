@@ -8,7 +8,9 @@ import {
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
 	if (id) {
-		const { data } = await axios.get(`/api/products/${id}`);
+		const { data } = await axios.get(
+			`https://proshop-7rto.onrender.com/api/products/${id}`
+		);
 
 		dispatch({
 			type: CART_ADD_ITEM,

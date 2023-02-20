@@ -7,10 +7,12 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import path from "path";
+import cors from "cors";
 
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 detenv.config();
+app.use(cors());
 
 connectDB();
 

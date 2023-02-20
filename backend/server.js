@@ -12,11 +12,11 @@ import cors from "cors";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 detenv.config();
-app.use(cors());
 
 connectDB();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const __dirname = path.resolve();

@@ -62,10 +62,10 @@ On the home page you can view all the products available along with their rating
 7. Decide upon the quantity and the price of the items in the cart and proceed to checkout.
 8. Enter your shipping details.
 9. Enter your method of payment.
-10.Place your order.
-11.An oder will be created against your profile which you can view in your profile.
-12.Use paypal to pay your order.
-13.You can also edit your profile and change your password.
+10. Place your order.
+11. An oder will be created against your profile which you can view in your profile.
+12. Use paypal to pay your order.
+13. You can also edit your profile and change your password.
 
 
 #### For Admins

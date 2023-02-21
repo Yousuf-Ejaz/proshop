@@ -91,7 +91,7 @@ I structured the application based on MVC Architecture. MVC stands for Model, Vi
 
 `/api/products`
 | REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
-| :-------------- | :-------: | ------------------: |
+| :-------------- | :-------: | :------------------: | :----------:
 | GET | /api/products | Fetch all products | Public
 | GET | /api/products/:id | Fetch single product | Public
 | DELETE | /api/products/:id | Delete a product | Private/Admin
@@ -100,7 +100,7 @@ I structured the application based on MVC Architecture. MVC stands for Model, Vi
 
 `/api/users`
 | REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
-| :-------------- | :-------: | ------------------: |
+| :-------------- | :-------: | :------------------: | :----------:
 | POST | /api/users/login | Auth User and get token | Public
 | POST | /api/users | Register User | Public
 | GET | /api/users/profile | Get user profile | Private
@@ -112,7 +112,7 @@ I structured the application based on MVC Architecture. MVC stands for Model, Vi
 
 `/api/orders`
 | REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
-| :-------------- | :-------: | ------------------: |
+| :-------------- | :-------: | :------------------: | :----------:
 | POST | /api/orders | Create new Order | Private
 | GET | /api/orders/:id | Get order by ID | Private
 | GET | /api/orders/:id/pay | Update order to paid | Private
@@ -120,17 +120,17 @@ I structured the application based on MVC Architecture. MVC stands for Model, Vi
 
 `/api/upload`
 | REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
-| :-------------- | :-------: | ------------------: |
+| :-------------- | :-------: | :------------------: | :----------:
 | POST | /api/upload | Upload an Image | Private
 
 
 
-### Failed Tasks
+### [Failed Tasks]
 
 - The upload functionality broke upon bringing into production.
 - The state of the payment completion is not updated upon payment.
 
-### Pending Tasks
+### [Pending Tasks]
 
 - Unit Tests
 

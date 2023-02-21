@@ -76,6 +76,14 @@ On the home page you can view all the products available along with their rating
 4. An admin can add products to the avalable list of product on the homepage.
 5. An admin can alter the details of a product.
 
+### Failed Tasks
+
+- The upload functionality broke upon bringing into production.
+- The state of the payment completion is not updated upon payment.
+
+### Pending Tasks
+
+- Unit Tests
 
 ### Additional Features to be added later:
 

@@ -8,6 +8,8 @@
 - **Server Enviornment** - NodeJS
 - **Framework** - ExpressJS
 - **Frontend** - ReactJS, HTML, CSS, Javascript, Vite
+- **UI/UX** - BootStrap
+- **State management** - Redux
 - **Database** - MongoDB
 - **Cloud database service** - MongoDB Atlas
 - **Authorizatiion** - JWT
@@ -75,6 +77,53 @@ On the home page you can view all the products available along with their rating
 3. An admin can change the user's details except their password.
 4. An admin can add products to the avalable list of product on the homepage.
 5. An admin can alter the details of a product.
+
+## Project Structure
+
+I structured the application based on MVC Architecture. MVC stands for Model, View and Controller. This application presents a clear demarcation between the Model, View and Controller logics:
+
+1. The `Model` logic is managed by Redux and Redux toolkit. Redux store decides what data the app should contain according to the current state. If the state of this data changes, then the `View` is notified. It is Implemented and managed using `Store`, `Reducers`, `Constants` and `Actions`.
+2. The `View` logic is handled using `BootStrap` Elements. It renders elements using `React` and by monitoring the changes in the `Model` logic or the store state.
+3. The `Controller` contains the implemtation and logic to all the routes which ultimately updates the model and/or view in response to input from the users of the app.
+
+
+## 🔨 API Endpoints
+
+`/api/products`
+| REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
+| :-------------- | :-------: | ------------------: |
+| GET | /api/products | Fetch all products | Public
+| GET | /api/products/:id | Fetch single product | Public
+| DELETE | /api/products/:id | Delete a product | Private/Admin
+| POST | /api/products | Create a product| Private/Admin
+| PUT | /api/products/:id | Update a product| Private/Admin
+
+`/api/users`
+| REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
+| :-------------- | :-------: | ------------------: |
+| POST | /api/users/login | Auth User and get token | Public
+| POST | /api/users | Register User | Public
+| GET | /api/users/profile | Get user profile | Private
+| PUT | /api/users/profile | Update user profile | Private
+| GET | /api/users | Get All users| Private/Admin
+| DELETE | /api/users/:id | Delete a user | Private/Admin
+| GET | /api/users/:id | Get user by Id | Private/Admin
+| PUT | /api/users/profile | Update user by Id | Private/Admin
+
+`/api/orders`
+| REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
+| :-------------- | :-------: | ------------------: |
+| POST | /api/orders | Create new Order | Private
+| GET | /api/orders/:id | Get order by ID | Private
+| GET | /api/orders/:id/pay | Update order to paid | Private
+| GET | /api/orders/myorders | Update logged in user orders | Private
+
+`/api/upload`
+| REQUEST METHODS | ENDPOINTS | DESCRIPTION |ACCESS
+| :-------------- | :-------: | ------------------: |
+| POST | /api/upload | Upload an Image | Private
+
+
 
 ### Failed Tasks
 

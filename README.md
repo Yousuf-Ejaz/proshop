@@ -91,3 +91,4 @@ On the home page you can view all the products available along with their rating
 - Reviews for users
 - Search within the homepage
 - Pagination for the homepage
+- Filers for price, category, brand etc.
